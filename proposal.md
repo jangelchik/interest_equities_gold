@@ -1,5 +1,7 @@
 ## Price of gold versus top central bank overnight deposit rate and top global stock indices by market capitalization:
 
+### Economic theory dictates that a decrease in interest rates causes inflation, and thereby a decrease in purchasing power. Gold is often touted as a safe haven store-of-value during times of inflation, so it's relationship with interest rates is something I would like to investigate further. I would also like to see if performance in equity markets has any predictive power with regard to the price of gold. 
+
 #### Domain research sources:
 Top forex pairs (to determine top global currencies by trading volume): https://www.ig.com/us/trading-strategies/top-10-most-traded-currency-pairs-191206
 Use this information to determine which Central Bank rates to consider
@@ -26,8 +28,3 @@ Price of gold: https://www.usagold.com/reference/prices/goldhistory.php?ddYears=
 #### Model
 Because all features are continuous variables, and I am interested in predicting a continuous value (price of gold), I will be using a Gradient Boosted Regressor.
 
-
-
-```python
-
-```
