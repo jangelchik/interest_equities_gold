@@ -1,7 +1,7 @@
 # Gold as a Hedge Strategy
 
 # Background
-#### Gold is often said to be a store of value against inflation. Gold is also often said to be a hedge against volatility in equity markets. Leveraging some classical economic thought, this makes sense at surface level: lower interest rates cause inflation and devalue the currency, so people flock to gold. As for equity markets, nobody likes to lose money. When equity markets have satiated an investor's appetite for risk, some of those funds will flow into gold. But this would assume a perfectly rational investor, and I don't think I've ever met one in real life. Let's see how these taken-for-granted relationships hold up alongside the data.
+#### Gold is often said to be a store of value against inflation. Gold is also often said to be a hedge against volatility in equity markets. Leveraging some classical economic thought, this makes sense at surface level: lower interest rates cause inflation and devalue the currency, so people flock to gold. As for equity markets, nobody likes to lose money. When equity markets have satiated an investor's appetite for risk, some of those funds will flow into gold. But this would assume a perfectly rational investor, and I don't think I've ever met one in real life. Let's see how these taken-for-granted relationships hold up alongside the most recent 10 years of data.
 
 
 # We want to investigate the predictivty of central bank policy rates and stock market index performance as they relate to the price of gold. 
@@ -29,12 +29,12 @@ Australia (AUD): https://www.rba.gov.au/statistics/cash-rate/
 ## EDA
 ### Historical Gold Data Trends and Moving Averages
 
-![png](output_23_0.png)
+![png](visuals_and_modeling/output_23_0.png)
 
 ## EDA
 ### Historical Gold Data Trends Alongside All Features
 
-![png](output_27_1.png)
+![png](visuals_and_modeling/output_27_1.png)
 
 
 ### Raw Data Trends - Price of Gold, Central Bank Policy Rates, and Global Index Summary:
@@ -57,9 +57,9 @@ While there are periods of time within the data the gold moves in tandem with ou
 So we now know that both gold's Daily Price Difference and Daily Percent Change are stationary.
 Let's take a look at some autocorrelation and partial autocorrelation plots to see if an AR (auto-regressive) model  would make sense for our baselines
 
-![png](output_32_0.png)
+![png](visuals_and_modeling/output_32_0.png)
 
-![png](output_33_0.png)
+![png](visuals_and_modeling/output_33_0.png)
 
 
 ### While we've proven stationarity in daily price difference and daily percent change, our Autocorrelation plots  aren't encouraging. An AR based model doesn't seem like the proper approach, but linear regression actually assumes an absence of autocorrelation. To get the simplest of baselines, let's fit a linear model with gold's price difference and price change with the features being a 1 through 10 day lag.
@@ -86,7 +86,7 @@ dif_gold_score, dif_gold_model = cross_val_and_score(LinearRegression(),train_X_
     Cross_Val 5 Model R^2 Score:-0.016
     Final Model R^2 Score:-0.014
 
-![png](output_49_1.png)
+![png](visuals_and_modeling/output_49_1.png)
 
 
 ### Linear Regression Model: Daily Gold Price Percent Change, 10 day lag
@@ -105,7 +105,7 @@ change_gold_score, change_gold_model = cross_val_and_score(LinearRegression(),tr
     Cross_Val 5 Model R^2 Score:-0.011
     Final Model R^2 Score:-0.019
 
-![png](output_55_1.png)
+![png](visuals_and_modeling/output_55_1.png)
 
 
 ### Linear Regression for Gold Price 10 Day Lag Summary:
@@ -129,7 +129,7 @@ ma_dif_gold_score = cross_val_and_score_ma(train_y_dif_ma,train_y_dif,test_y_dif
     Cross_Val 5 Model R^2 Score:-0.089
     Final Model R^2 Score:-0.13
 
-![png](output_67_1.png)
+![png](visuals_and_modeling/output_67_1.png)
 
 
 ## 10 Day Moving Average Regressor: Daily Percent Change Gold Price
@@ -149,7 +149,7 @@ ma_change_gold_score = cross_val_and_score_ma(train_y_change_ma,train_y_change,t
     Cross_Val 5 Model R^2 Score:-0.085
     Final Model R^2 Score:-0.127
 
-![png](output_76_1.png)
+![png](visuals_and_modeling/output_76_1.png)
 
 
 ### 10 Day Moving Average Regressor for Gold Price Summary:
@@ -173,7 +173,7 @@ dif_gold_score, dif_gold_model = cross_val_and_score(GradientBoostingRegressor(l
     Cross_Val 5 Model R^2 Score:0.001
     Final Model R^2 Score:-0.011
 
-![png](output_83_1.png)
+![png](visuals_and_modeling/output_83_1.png)
 
 
 ## Gradient Boosting Regressor: Daily Percent Change Gold Price, 10 day lag
@@ -192,7 +192,7 @@ change_gold_score, change_gold_model = cross_val_and_score(GradientBoostingRegre
     Cross_Val 5 Model R^2 Score:-0.018
     Final Model R^2 Score:-0.005
 
-![png](output_89_1.png)
+![png](visuals_and_modeling/output_89_1.png)
 
 
 ### Gradient Boosting Regression for Gold Price, 10 Day Lag Summary:
@@ -216,7 +216,7 @@ dif_score, dif_model = cross_val_and_score(GradientBoostingRegressor(learning_ra
     Cross_Val 5 Model R^2 Score:-0.725
     Final Model R^2 Score:-0.023
 
-![png](output_100_1.png)
+![png](visuals_and_modeling/output_100_1.png)
 
 
 ## Gradient Boosting Regressor: Daily Gold Price Percent Change, All Features
@@ -235,7 +235,7 @@ change_score, change_model = cross_val_and_score(GradientBoostingRegressor(learn
     Cross_Val 5 Model R^2 Score:-0.009
     Final Model R^2 Score:-0.017
 
-![png](output_110_1.png)
+![png](visuals_and_modeling/output_110_1.png)
 
 
 ### Gradient Boosting Regression for Gold Price - Stock Indices, Central Bank Policy Rates, and Gold Pricing
