@@ -258,19 +258,6 @@ dif_score, dif_model = cross_val_and_score(GradientBoostingClassifier(learning_r
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -313,19 +300,6 @@ change_score, change_model = cross_val_and_score(GradientBoostingClassifier(lear
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -354,7 +328,7 @@ change_score, change_model = cross_val_and_score(GradientBoostingClassifier(lear
 ### Gradient Boosting Classification for Gold Price - Stock Indices, Central Bank Policy Rates, and Gold Pricing
 You may have gotten excited by the score ouputs above growing to be at least positive numbers, but it's important we understand the nuances between scoring classifiers versus regressors. While an R^2 score of 0 for regression implies a model that does no better than guessing a constant, we scored our classifiers using the accuracy metric. In this instance, a score of 0.5 (50%) is actually the threshhold for positively contributing to the prediction of a value.
 
-#### Good news: our classifiers' accuracy scores Daily Gold Price Difference (accuracy = 0.55) and Daily Gold Price Percent Change (accuracy = 0.53) are positive contributing to the prediction of gold's price movement.
+#### Good news: our classifiers' accuracy scores Daily Gold Price Difference (accuracy = 0.55) and Daily Gold Price Percent Change (accuracy = 0.53) are positively contributing to the prediction of gold's price movement.
 
 #### Bad news: the classifiers are doing so at a rate only slightly better than a coin flip.
 
