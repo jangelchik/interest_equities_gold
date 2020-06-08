@@ -53,9 +53,9 @@ While there are periods of time within the data the gold moves in tandem with ou
 So we now know that both gold's Daily Price Difference and Daily Percent Change are stationary.
 Let's take a look at some autocorrelation and partial autocorrelation plots to see if an AR (auto-regressive) model  would make sense for our baselines
 
-![png](visuals_and_modeling/auto_gold_final.png)
+![png](img/auto_gold_final.png)
 
-![png](visuals_and_modeling/pauto_gold_final.png)
+![png](img/pauto_gold_final.png)
 
 
 #### While we've proven stationarity in daily price difference and daily percent change, our Autocorrelation plots  aren't encouraging. An AR based model doesn't seem like the proper approach, but linear regression actually assumes an absence of autocorrelation. 
