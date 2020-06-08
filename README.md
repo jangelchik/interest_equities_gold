@@ -23,6 +23,10 @@
 ### Targets:
 #### Daily price of gold, daily difference in gold price, daily percent change price of gold: https://www.usagold.com/reference/prices/goldhistory.php
 
+## Workflow
+![png](img/workflow.png)
+
+
 ## EDA
 ### Historical Gold Data Trends and Moving Averages
 
