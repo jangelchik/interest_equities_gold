@@ -3,24 +3,21 @@
 # Background
 #### Gold is often said to be a store of value against inflation. Gold is also often said to be a hedge against volatility in equity markets. Leveraging some classical economic thought, this makes sense at surface level: lower interest rates cause inflation and devalue the currency, so people flock to gold. As for equity markets, nobody likes to lose money. When equity markets have satiated an investor's appetite for risk, some of those funds will flow into gold. But this would assume a perfectly rational investor, and I don't think I've ever met one in real life. Let's see how these taken-for-granted relationships hold up alongside the most recent 10 years of data.
 
-
-# We want to investigate the predictivty of central bank policy rates and stock market index performance as they relate to the price of gold. 
-
 ## We'll attempt to use time series modeling to predict the daily price, daily price difference, and daily percent change in price of gold.
 ### We have the most recent 10 years of daily data from the following sources:
 ### Features:
 #### Top 5 equity market indices by market capitalization, per Statista: https://www.statista.com/statistics/270126/largest-stock-exchange-operators-by-market-capitalization-of-listed-companies/, and their corresponding daily performance and percent change
-NYSE Composite Index history: https://finance.yahoo.com/quote/%5ENYA?p=^NYA&.tsrc=fin-srch
-NASDAQ Composite Index history: https://finance.yahoo.com/quote/%5EIXIC?p=^IXIC&.tsrc=fin-srch
-Japan Exchange Group Composite Index history: https://finance.yahoo.com/quote/8697.T?p=8697.T&.tsrc=fin-srch
-Shanghai Stock Exchange Composite Index history: https://finance.yahoo.com/quote/%5ESSEC?p=^SSEC&.tsrc=fin-srch
-Hang Seng (Hong Kong) Index History: https://finance.yahoo.com/quote/%5EHSI?p=^HSI&.tsrc=fin-srch
+- NYSE Composite Index history: https://finance.yahoo.com/quote/%5ENYA?p=^NYA&.tsrc=fin-srch
+- NASDAQ Composite Index history: https://finance.yahoo.com/quote/%5EIXIC?p=^IXIC&.tsrc=fin-srch
+- Japan Exchange Group Composite Index history: https://finance.yahoo.com/quote/8697.T?p=8697.T&.tsrc=fin-srch
+- Shanghai Stock Exchange Composite Index history: https://finance.yahoo.com/quote/%5ESSEC?p=^SSEC&.tsrc=fin-srch
+- Hang Seng (Hong Kong) Index History: https://finance.yahoo.com/quote/%5EHSI?p=^HSI&.tsrc=fin-srch
 #### Top 5 Currencies Globally in Forex Trading (https://www.ig.com/us/trading-strategies/top-10-most-traded-currency-pairs-191206), and their corresponding daily central bank policy rates and percent change
-The Fed (USD): https://fred.stlouisfed.org/series/FEDFUNDS
-ECB (EUR): https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
-BoJ (JPY): https://fred.stlouisfed.org/series/IRSTCI01JPM156N
-United Kingdom (GBP): https://fred.stlouisfed.org/series/GBPONTD156N
-Australia (AUD): https://www.rba.gov.au/statistics/cash-rate/
+- The Fed (USD): https://fred.stlouisfed.org/series/FEDFUNDS
+- ECB (EUR): https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
+- BoJ (JPY): https://fred.stlouisfed.org/series/IRSTCI01JPM156N
+- United Kingdom (GBP): https://fred.stlouisfed.org/series/GBPONTD156N
+- Australia (AUD): https://www.rba.gov.au/statistics/cash-rate/
 #### Daily price of gold  and percent change (up to 10-day lag): https://www.usagold.com/reference/prices/goldhistory.php
 
 ### Targets:
