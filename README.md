@@ -354,12 +354,12 @@ change_score, change_model = cross_val_and_score(GradientBoostingClassifier(lear
 ### Gradient Boosting Classification for Gold Price - Stock Indices, Central Bank Policy Rates, and Gold Pricing
 You may have gotten excited by the score ouputs above growing to be at least positive numbers, but it's important we understand the nuances between scoring classifiers versus regressors. While an R^2 score of 0 for regression implies a model that does no better than guessing a constant, we scored our classifiers using the accuracy metric. In this instance, a score of 0.5 (50%) is actually the threshhold for positively contributing to the prediction of a value.
 
-#### Good news: our classifiers' accuracy scores Daily Gold Price Difference (R^2 = 0.55) and Daily Gold Price Percent Change (R^2 = 0.53) are positive contributing to the prediction of gold's price movement.
+#### Good news: our classifiers' accuracy scores Daily Gold Price Difference (accuracy = 0.55) and Daily Gold Price Percent Change (accuracy = 0.53) are positive contributing to the prediction of gold's price movement.
 
-#### Bad news: the classifiers are doing so at a rate only slightly better than a coin flip. Of all of the features in our models, only one had a permutation importance greater than 0.01. It was the Nasdaq 9 day lag re: Gradient Boosting Classifer - Daily Difference in Gold Price. Perhaps a relationship does exist there, but I'm not convinced. 
+#### Bad news: the classifiers are doing so at a rate only slightly better than a coin flip.
 
 # Conclusion
-### If a  consistent relationship between interest rates, stock market indices, and the price of gold does exist, it doesn't appear to be properly captured with the featuers we have chosen and a 10 day lag.
+### If a consistent relationship between interest rates, stock market indices, and the price of gold does exist, it doesn't appear to be properly captured with the features we have chosen and a 10 day lag.
 
 ### Further study
 - Investigate longer lag: it's possible a cyclical trend exists in gold's price movement over a larger window than ten years.
