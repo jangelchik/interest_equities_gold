@@ -18,7 +18,6 @@
 - BoJ (JPY): https://fred.stlouisfed.org/series/IRSTCI01JPM156N
 - United Kingdom (GBP): https://fred.stlouisfed.org/series/GBPONTD156N
 - Australia (AUD): https://www.rba.gov.au/statistics/cash-rate/
-#### Daily price of gold  and percent change (up to 10-day lag): https://www.usagold.com/reference/prices/goldhistory.php
 
 ### Targets:
 #### Daily price of gold, daily difference in gold price, daily percent change price of gold: https://www.usagold.com/reference/prices/goldhistory.php
@@ -59,7 +58,8 @@ Let's take a look at some autocorrelation and partial autocorrelation plots to s
 ![png](visuals_and_modeling/pauto_gold_final.png)
 
 
-### While we've proven stationarity in daily price difference and daily percent change, our Autocorrelation plots  aren't encouraging. An AR based model doesn't seem like the proper approach, but linear regression actually assumes an absence of autocorrelation. To get the simplest of baselines, let's fit a linear model with gold's price difference and price change with the features being a 1 through 10 day lag.
+#### While we've proven stationarity in daily price difference and daily percent change, our Autocorrelation plots  aren't encouraging. An AR based model doesn't seem like the proper approach, but linear regression actually assumes an absence of autocorrelation. 
+#### To get the simplest of baselines, let's fit a linear model with gold's price difference and price change with the features being a 1 through 10 day lag. Given the dynamic nature of markets, a 10 day lag will help mitigate an extinct trend from a previous timeframe over-influencing our models.
 
 ## Linear Model Assumptions:
 We may be breaking the rules a bit here. We're really most concerned with generating a baseline model. Who knows?, perhaps the model will pick up something our eyes missed during visual EDA.
