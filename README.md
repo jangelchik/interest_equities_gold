@@ -26,6 +26,8 @@
 ## Workflow
 ![png](img/workflow.png)
 
+### Detailed coding and statistical procedures can be found in the visuals_and_modeling folder of this repository
+
 
 ## EDA
 ### Historical Gold Data Trends and Moving Averages
