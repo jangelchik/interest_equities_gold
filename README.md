@@ -41,7 +41,7 @@
 
 
 ### Raw Data Trends - Price of Gold, Central Bank Policy Rates, and Global Index Summary:
-While there are periods of time within the data the gold moves in tandem with our features, those trends and not consistent throughout our entire time window of the most recent ten years.
+While there are periods of time within the data the gold moves in tandem with our features, those trends and not consistent throughout our entire time window of approximately the most recent ten years.
 
 - Rates that stick out to me: Euro, Australian Dollar
 - Stock indices that stick out to me: Nasdaq, NYSE
@@ -340,7 +340,7 @@ You may have gotten excited by the score ouputs above growing to be at least pos
 #### Bad news: the classifiers are doing so at a rate only slightly better than a coin flip.
 
 # Conclusion
-### If a consistent relationship between interest rates, stock market indices, and the price of gold does exist, it doesn't appear to be properly captured with the features we have chosen and a 10 day lag.
+### If a consistent relationship between interest rates, stock market indices, and the price of gold does exist, it isn’t captured within a ~10 year period using the features we have chosen and a 10 day lag
 
 ### Further study
 - Investigate longer lag: it's possible a cyclical trend exists in gold's price movement over a larger window than ten years.
