@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[10]:
-
-
 import pandas as pd
 import numpy as np
 import scipy.stats as stats
@@ -13,30 +7,20 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
 
-# In[11]:
-
-
 import sklearn
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
 from sklearn.inspection import permutation_importance
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score, r2_score
 
-
-# In[12]:
-
-
 from sklearn.model_selection import TimeSeriesSplit
-
-
-# In[13]:
-
 
 from sklearn.linear_model import LinearRegression
 
+from sklearn.metrics import confusion_matrix
 
-# In[7]:
-
+#read-in data frame from data/consolidate_v2.ipynb
+df_Xy = pd.read_csv('../data/dfXy.csv')
 
 def plot_trends(X,y):
     
@@ -81,10 +65,8 @@ def plot_trends(X,y):
         ax2.legend()
     
     plt.tight_layout()
-
-
-# In[2]:
-
+    
+    return None
 
 def cross_val_and_score(model,X_train, X_test, y_train, y_test):
     
@@ -136,10 +118,6 @@ def cross_val_and_score(model,X_train, X_test, y_train, y_test):
     print(f'Final {score_label}:{round(score_,3)}')
     return score, m_dif
 
-
-# In[3]:
-
-
 def plot_model(model,X_test,y_test):
 
     """PARAMETERS:
@@ -164,10 +142,68 @@ def plot_model(model,X_test,y_test):
     ax.set_ylabel(y_label)
     ax.set_title(title)
     ax.legend()
+    
+    return None
+
+def cross_val_and_score_ma(y_ma_train, y_train, y_ma_test, y_test):
+    
+    
+    """
+    PARAMETERS:
+    
+    y_ma - Moving average to compare against target in pandas series format
+    y_test - Test target dataset in pandas series format
+    
+    RETURNS:
+    numpy array of cross_validation and final train/test score
+    
+    """
+    
+    tscv = TimeSeriesSplit()
+    
+    ma_type = input('Is this moving average a classifier(enter "c") or regressor(enter "r")?')
+    
+    score_label = ''
+    
+    score = []
+    count = 1
+    
+    if ma_type == 'c':
+        score_label = 'Model Accuracy Score'
+        
+        for tr_index, val_index in tscv.split(y_train):
+            y_ma_tr, y_ma_val = y_ma_train.loc[tr_index], y_ma_train.loc[val_index]
+            y_tr, y_val = y_train.loc[tr_index], y_train.loc[val_index]
+        
+            score_ = accuracy_score(y_val, y_ma_val)
+            score.append(score_)
+            print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
+            count += 1
 
 
-# In[4]:
+        
+        score_ = accuracy_score(y_test,y_ma_test)
+        score.append(score_)
+        print(f'Final {score_label}:{round(score_,3)}')
+        return score
+    else:
+        score_label = 'Model R^2 Score'
+        
+        for tr_index, val_index in tscv.split(y_train):
+            y_ma_tr, y_ma_val = y_ma_train.loc[tr_index], y_ma_train.loc[val_index]
+            y_tr, y_val = y_train.loc[tr_index], y_train.loc[val_index]
+        
+            score_ = r2_score(y_val,y_ma_val)
+            score.append(score_)
+            print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
+            count += 1
 
+
+        
+        score_ = r2_score(y_test,y_ma_test)
+        score.append(score_)
+        print(f'Final {score_label}:{round(score_,3)}')
+        return score
 
 def plot_ma_model(y_ma,y_test):
 
@@ -193,10 +229,8 @@ def plot_ma_model(y_ma,y_test):
     ax.set_ylabel(y_label)
     ax.set_title(title)
     ax.legend()
-
-
-# In[5]:
-
+    
+    return None
 
 def print_confusion_matrix(model,X_test,y_test):
 
@@ -218,8 +252,6 @@ def print_confusion_matrix(model,X_test,y_test):
     df.rename(index = {0:'Predicted Positive', 1: 'Predicted Negative'}, inplace = True)
     return df
 
-
-# In[ ]:
 
 
 
