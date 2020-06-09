@@ -1,4 +1,4 @@
-# Gold as a Hedge Strategy
+# Gold as an Investment Hedge
 
 # Background
 #### Gold is often said to be a store of value against inflation. Gold is also often said to be a hedge against volatility in equity markets. Leveraging some classical economic thought, this makes sense at surface level: lower interest rates cause inflation, devalue the currency, and diminish the returns of bonds, so people flock to gold. As for equity markets, nobody likes to lose money. When equity markets have satiated an investor's appetite for risk, some of those funds will flow into gold. But this would assume a perfectly rational investor, and I don't think I've ever met one in real life. Let's see how these taken-for-granted relationships hold up alongside the most recent 10 years of data.
