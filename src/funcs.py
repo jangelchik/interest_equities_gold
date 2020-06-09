@@ -42,14 +42,14 @@ def plot_trends(X,y):
         tgt = y
         series = X[col]
 
-        ax.plot(df_Xy.index[series.index],series, label = col)
+        ax.plot(series.index,series, label = col)
         ax.tick_params(axis='y', labelcolor='red')
 
         ax2 = ax.twinx()  # instantiate a second axes that shares the same x-axis
 
 
         ax2.set_ylabel(y_label, fontsize = 12)  # we already handled the x-label with ax1
-        ax2.plot(df_Xy.index[tgt.index],tgt, color = 'blue', alpha = 0.5, label = 'gold')
+        ax2.plot(tgt.index,tgt, color = 'blue', alpha = 0.5, label = 'gold')
 
         ax2.tick_params(axis='y', labelcolor='blue')
 
