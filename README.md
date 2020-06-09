@@ -26,18 +26,18 @@
 ## Workflow
 ![png](img/workflow.png)
 
-### Detailed coding and statistical procedures can be found in the visuals_and_modeling folder of this repository
+### Detailed coding and statistical procedures can be found in the visuals_and_modeling.ipynb file of this repository
 
 
 ## EDA
 ### Historical Gold Data Trends and Moving Averages
 
-![png](visuals_and_modeling/output_23_0.png)
+![png](img/output_23_0.png)
 
 ## EDA
 ### Historical Gold Data Trends Alongside All Features
 
-![png](visuals_and_modeling/output_27_1.png)
+![png](img/output_27_1.png)
 
 
 ### Raw Data Trends - Price of Gold, Central Bank Policy Rates, and Global Index Summary:
@@ -90,7 +90,7 @@ dif_gold_score, dif_gold_model = cross_val_and_score(LinearRegression(),train_X_
     Cross_Val 5 Model R^2 Score:-0.016
     Final Model R^2 Score:-0.014
 
-![png](visuals_and_modeling/output_49_1.png)
+![png](img/output_49_1.png)
 
 
 ### Linear Regression Model: Daily Gold Price Percent Change, 10 day lag
@@ -109,7 +109,7 @@ change_gold_score, change_gold_model = cross_val_and_score(LinearRegression(),tr
     Cross_Val 5 Model R^2 Score:-0.011
     Final Model R^2 Score:-0.019
 
-![png](visuals_and_modeling/output_55_1.png)
+![png](img/output_55_1.png)
 
 
 ### Linear Regression for Gold Price 10 Day Lag Summary:
@@ -133,7 +133,7 @@ ma_dif_gold_score = cross_val_and_score_ma(train_y_dif_ma,train_y_dif,test_y_dif
     Cross_Val 5 Model R^2 Score:-0.089
     Final Model R^2 Score:-0.13
 
-![png](visuals_and_modeling/output_67_1.png)
+![png](img/output_67_1.png)
 
 
 ## 10 Day Moving Average Regressor: Daily Percent Change Gold Price
@@ -153,7 +153,7 @@ ma_change_gold_score = cross_val_and_score_ma(train_y_change_ma,train_y_change,t
     Cross_Val 5 Model R^2 Score:-0.085
     Final Model R^2 Score:-0.127
 
-![png](visuals_and_modeling/output_76_1.png)
+![png](img/output_76_1.png)
 
 
 ### 10 Day Moving Average Regressor for Gold Price Summary:
@@ -177,7 +177,7 @@ dif_gold_score, dif_gold_model = cross_val_and_score(GradientBoostingRegressor(l
     Cross_Val 5 Model R^2 Score:0.001
     Final Model R^2 Score:-0.011
 
-![png](visuals_and_modeling/output_83_1.png)
+![png](img/output_83_1.png)
 
 
 ## Gradient Boosting Regressor: Daily Percent Change Gold Price, 10 day lag
@@ -196,7 +196,7 @@ change_gold_score, change_gold_model = cross_val_and_score(GradientBoostingRegre
     Cross_Val 5 Model R^2 Score:-0.018
     Final Model R^2 Score:-0.005
 
-![png](visuals_and_modeling/output_89_1.png)
+![png](img/output_89_1.png)
 
 
 ### Gradient Boosting Regression for Gold Price, 10 Day Lag Summary:
@@ -220,7 +220,7 @@ dif_score, dif_model = cross_val_and_score(GradientBoostingRegressor(learning_ra
     Cross_Val 5 Model R^2 Score:-0.725
     Final Model R^2 Score:-0.023
 
-![png](visuals_and_modeling/output_100_1.png)
+![png](img/output_100_1.png)
 
 
 ## Gradient Boosting Regressor: Daily Gold Price Percent Change, All Features
@@ -239,7 +239,7 @@ change_score, change_model = cross_val_and_score(GradientBoostingRegressor(learn
     Cross_Val 5 Model R^2 Score:-0.009
     Final Model R^2 Score:-0.017
 
-![png](visuals_and_modeling/output_110_1.png)
+![png](img/output_110_1.png)
 
 
 ### Gradient Boosting Regression for Gold Price - Stock Indices, Central Bank Policy Rates, and Gold Pricing
@@ -344,5 +344,5 @@ You may have gotten excited by the score ouputs above growing to be at least pos
 
 ### Further study
 - Investigate longer lag: it's possible a cyclical trend exists in gold's price movement over a larger window than ten years.
-- Investigate polynomial transformations of the variables and possible interaction features with current data before confirming there is no relationship.
+- Feature engineering: polynomial and interaction transformations of our current features, for starters
 

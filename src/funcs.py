@@ -20,7 +20,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import confusion_matrix
 
 #read-in data frame from data/consolidate_v2.ipynb
-df_Xy = pd.read_csv('../data/dfXy.csv')
+df_Xy = pd.read_csv('data/dfXy.csv')
 
 def plot_trends(X,y):
     
