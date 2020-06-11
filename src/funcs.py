@@ -114,7 +114,7 @@ def cross_val_and_score(model,X_train, X_test, y_train, y_test):
         score_ = m_dif.score(X_val,y_val)
     
         score.append(score_)
-        print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
+        #print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
         count += 1
 
     m_dif = model
@@ -190,7 +190,7 @@ def cross_val_and_score_ma(y_ma_train, y_train, y_ma_test, y_test):
         
             score_ = accuracy_score(y_val, y_ma_val)
             score.append(score_)
-            print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
+            #print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
             count += 1
 
 
@@ -208,7 +208,7 @@ def cross_val_and_score_ma(y_ma_train, y_train, y_ma_test, y_test):
         
             score_ = r2_score(y_val,y_ma_val)
             score.append(score_)
-            print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
+            #print(f'Cross_Val {count} {score_label}:{round(score_,3)}')
             count += 1
 
 
