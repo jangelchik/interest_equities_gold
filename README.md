@@ -113,7 +113,7 @@ change_gold_score, change_gold_model = cross_val_and_score(LinearRegression(),tr
 
 
 ### Linear Regression for Gold Price 10 Day Lag Summary:
-A simple linear model is doing more harm than good when using a ten day lag to predict both the Daily Price Difference (R^2 Score = -0.008) as well as the Daily Percent Change in Price (R^2 Score = -0.019).
+A simple linear model is doing more harm than good when using a ten day lag to predict both the Daily Price Difference (R^2 Score = -0.014) as well as the Daily Percent Change in Price (R^2 Score = -0.019).
 
 #### Idea: Let's tryout a different model with again just the 10 day lag for only gold price data. A moving average feels like a reasonable next step, given its prominence as a technical indicator in the world of online trading. 
 

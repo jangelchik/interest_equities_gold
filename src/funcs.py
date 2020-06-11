@@ -4,8 +4,13 @@ import scipy.stats as stats
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import matplotlib.cbook as cbook
 plt.style.use('ggplot')
 
+years = mdates.YearLocator()   # every year
+months = mdates.MonthLocator()  # every month
+years_fmt = mdates.DateFormatter('%Y')
 
 import sklearn
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
@@ -21,6 +26,8 @@ from sklearn.metrics import confusion_matrix
 
 #read-in data frame from data/consolidate_v2.ipynb
 df_Xy = pd.read_csv('data/dfXy.csv')
+df_Xy['date'] = pd.to_datetime(df_Xy['date'], yearfirst = True)
+df_Xy.set_index('date', inplace = True)
 
 def plot_trends(X,y):
     
@@ -139,9 +146,15 @@ def plot_model(model,X_test,y_test):
     ax.plot(df_Xy.index[y_test.index], y_test, label = 'Actual', alpha = 0.5)
     
     ax.set_xlabel('Date')
+    ax.grid(True, which = 'major')
     ax.set_ylabel(y_label)
     ax.set_title(title)
     ax.legend()
+    
+    # format the ticks
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(years_fmt)
+    ax.xaxis.set_minor_locator(months)
     
     return None
 
@@ -226,9 +239,15 @@ def plot_ma_model(y_ma,y_test):
     ax.plot(df_Xy.index[y_test.index], y_test, label = 'Actual', alpha = 0.5)
     
     ax.set_xlabel('Date')
+    ax.grid(True, which = 'major')
     ax.set_ylabel(y_label)
     ax.set_title(title)
     ax.legend()
+    
+    # format the ticks
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(years_fmt)
+    ax.xaxis.set_minor_locator(months)
     
     return None
 
